@@ -5,13 +5,10 @@ from django.conf.urls import patterns
 
 from . import views
 
-# urlpatterns = [
-#     url(r'^$', views.index, name='index'),
-# ]
 
 urlpatterns = [
 
-    # url(r'^index', views.index, name='index'),
+    url(r'^$', views.mainpage, name='index'),
     url(r'^login', views.login, name='login'),
     url(r'^mainpage', views.mainpage, name='mainpage'),
     url(r'^errpage_not_auth',views.errpage_not_auth, name='errpage_not_auth'),
