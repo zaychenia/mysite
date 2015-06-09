@@ -123,6 +123,18 @@ def create_plan(spec, dep, chosen_list):
         if plan[i].group == 3:
             obr.append(plan[i])
 
+    log('wwwwwwwwwwwww')
+    log(s[3])
+
+    s1=s[0]
+    s2=s[1]
+    s3=s[2]
+    s4=s[3]
+    s5=s[4]
+    s6=s[5]
+    s7=s[6]
+    s8=s[7]
+
 
     log (spec)
 
@@ -138,7 +150,7 @@ def create_plan(spec, dep, chosen_list):
     #correct the plan
 
 
-    return log_out.getvalue(),plan, norm, za_spec, obr
+    return log_out.getvalue(),plan, norm, za_spec, obr, s1,s2,s3,s4,s5,s6,s7,s8
 
 
 

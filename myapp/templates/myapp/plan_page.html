@@ -62,7 +62,7 @@ $(document).ready(function() {
 
 <br/>
 <table class="tablesorter-green" id="myTable">
-{#   <caption>План</caption>#}
+  <strong> <p align="center">НОРМАТИВНА ЧАСТИНА</p></strong>
  <thead>
    <tr>
     <th>ID</th>
@@ -88,7 +88,9 @@ $(document).ready(function() {
 <br/><br/>
 
 <table class="tablesorter-green" id="myTable">
-{#   <caption>План</caption>#}
+  <strong><p style align="center">ДИСЦИПЛІНИ ЗА ВИБОРОМ СТУДЕНТА</p></strong>
+<br/>
+  <caption>ДИСЦИПЛІНИ ОБРАНІ СТУДЕНТОМ</caption>
  <thead>
    <tr>
     <th>ID</th>
@@ -114,7 +116,7 @@ $(document).ready(function() {
 <br/><br/>
 
 <table class="tablesorter-green" id="myTable">
-{#   <caption>План</caption>#}
+   <caption>БЛОК ДИСЦИПЛІН ОБРАНОЇ СПЕЦІАЛІЗАЦІЇ</caption>
  <thead>
    <tr>
     <th>ID</th>
@@ -137,11 +139,44 @@ $(document).ready(function() {
 
   </table>
 
-{#<code>#}
-{#    <pre>#}
-{#        {{ output }}#}
-{#    </pre>#}
-{#</code>#}
+<br/><br/>
+
+<table class="tablesorter-green" id="myTable">
+<p align="center">Всього за навчальним планом підготовки бакалавра:</p>
+ <thead>
+   <tr>
+    <th>Семестр 1</th>
+    <th>Семестр 2</th>
+    <th>Семестр 3</th>
+    <th>Семестр 4</th>
+    <th>Семестр 5</th>
+    <th>Семестр 6</th>
+    <th>Семестр 7</th>
+    <th>Семестр 8</th>
+   </tr>
+ </thead>
+ <tbody>
+
+   <tr>
+   <td align="center" >{{ s1 }}</td>
+    <td align="center" >{{ s2 }}</td>
+     <td align="center" >{{ s3 }}</td>
+       <td align="center" >{{ s4 }}</td>
+        <td align="center" >{{ s5 }}</td>
+        <td align="center" >{{ s6 }}</td>
+        <td align="center" >{{ s7 }}</td>
+        <td align="center" >{{ s8 }}</td>
+   </tr>
+
+ </tbody>
+
+  </table>
+
+<code>
+    <pre>
+        {{ output }}
+    </pre>
+</code>
 
 <p style="margin-left: 20"><font face="Arial" size="2" color="#000000">&nbsp;</font></p>
 <p style="margin-left: 20" align="center"><font face="Arial" color="#000000" size="1">©
