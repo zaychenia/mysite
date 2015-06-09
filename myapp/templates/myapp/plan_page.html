@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/changelists.css" />
+    <link rel="stylesheet" type="text/css" href="/static/theme.green.css" />
+    <script src="/static/jquery.min.js"></script>
+    <script src="/static/jquery.tablesorter.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <style type="text/css" >
+th {
+background-color:#EEE0E5;
+color:black;
+font-family:Times New Roman;
+font-size: 16px;
+}
+td
+{
+color:black;
+font-family:Times New Roman;
+font-size: 14px;
+}
+</style>
+<title>Plan</title>
+</head>
+
+<body topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0" marginheight="0" marginwidth="0" bgcolor="#FFFFFF">
+{% load staticfiles %}
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" background="/static/myapp/topbkg.gif">
+  <tr>
+    <td width="50%"><img border="0" src="/static/myapp/toplogo.jpg" width="142" height="66"></td>
+    <td width="50%">
+      <p align="right"><img border="0" src="/static/myapp/topright.gif" width="327" height="66"></td>
+  </tr>
+</table>
+<table border="0" width="100%" cellspacing="0" cellpadding="0" background="/myapp/img/blackline.gif">
+  <tr>
+    <td width="100%"><font color="#B8C0F0" face="Arial" size="2"><b>&nbsp;&nbsp;
+      <a href="/myapp/mainpage">Головна сторінка</a> &nbsp;&nbsp; |&nbsp;&nbsp; <a href="/myapp/info">Інформація про сервіс</a>&nbsp;&nbsp; |&nbsp;&nbsp;
+      <a href="/myapp/contacts">Контакти</a>&nbsp;&nbsp; |&nbsp;&nbsp; <a href="/myapp/logout">Log out</a>&nbsp;&nbsp;</b></font></td>
+  </tr>
+</table>
+
+
+</br></br>
+<script>
+$(document).ready(function() {
+        $("#myTable").tablesorter();
+    }
+);
+</script>
+{#<table style="margin-left:30px;" width="50%" border="2" rules="all" style="font-size: 20px;" id="myTable">#}
+<table class="tablesorter-green" id="myTable">
+{#   <caption>План</caption>#}
+ <thead>
+   <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Credits</th>
+    <th>Semester</th>
+   </tr>
+ </thead>
+ <tbody>
+     {% for subject in plan %}
+
+   <tr>
+   <td align="center" >{{ subject.id }}</td>
+    <td align="left" >{{ subject.name }}</td>
+    <td align="center" >{{ subject.kredits }}</td>
+    <td align="center" >{{ subject.semestr }}</td>
+   </tr>
+      {% endfor %}
+ </tbody>
+  </table>
+
+{#<code>#}
+{#    <pre>#}
+{#        {{ output }}#}
+{#    </pre>#}
+{#</code>#}
+
+<p style="margin-left: 20"><font face="Arial" size="2" color="#000000">&nbsp;</font></p>
+<p style="margin-left: 20" align="center"><font face="Arial" color="#000000" size="1">©
+COPYRIGHT 2015 ALL RIGHTS RESERVED SUMDU.EDU.UA</font></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0" background="/static/myapp/botline.gif">
+  <tr>
+    <td width="100%"><img border="0" src="/static/myapp/botline.gif" width="41" height="12"></td>
+  </tr>
+</table>
+
+</body>
+
+</html>

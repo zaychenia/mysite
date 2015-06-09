@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<html lang="en-us" >
+  <head>
+      <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
+      <link rel="stylesheet" type="text/css" href="/static/admin/css/login.css" />
+      <title>Authorization</title>
+  </head>
+  <body class=" login">
+        <div id="container">
+            <div id="header">
+                <div id="branding">
+                    <h1> Авторизація </h1>
+                </div>
+            </div>
+
+            <div id="content" class="colM">
+                <div id="content-main">
+
+                  <form action="/myapp/login" method="post" id="login-form">
+
+                      {% csrf_token %}
+                      <div class="form-row">
+                      <label class="required" for="id_username">Логін: </label>
+                        <input id="id_username" type="text" maxlength="254" name="username">
+                      </div>
+                      <div class="form-row">
+                        <label for="id_password">Пароль: </label>
+                        <input id="id_password" type="password" name="password">
+                      </div>
+                    <div class="submit-row">
+                        <input type="submit" value="Log in">
+                    </div>
+</br>
+                  </form>
+
+                  <form action="/myapp/registration" method="post" id="reg-form">
+                       {% csrf_token %}
+                       <div class="form-row">
+                       <label for="id_password">Не зареєстровані?</label>
+                       </div>
+                       <input type="submit" value="Register">
+                   </form>
+
+                 </div>
+                <br class="clear" />
+            </div>
+                <div id="footer"></div>
+                </div>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<html lang="en-us" >
+  <head>
+      <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
+      <link rel="stylesheet" type="text/css" href="/static/admin/css/login.css" />
+      <title>Registration</title>
+  </head>
+  <body class=" login">
+        <div id="container">
+            <div id="header">
+                <div id="branding">
+                    <h1> Реєстрація </h1>
+                </div>
+            </div>
+
+            <div id="content" class="colM">
+                <div id="content-main">
+
+                  <form action="/myapp/registration" method="post" id="login-form">
+{{ form.as_p }}
+                      {% csrf_token %}
+
+                    <div class="submit-row">
+                        <input type="submit" value="Register">
+                    </div>
+
+
+                  </form>
+
+                   <form action="/myapp/login">
+                       {% csrf_token %}
+                       <input type="submit" value="Back">
+                   </form>
+                 </div>
+                <br class="clear" />
+            </div>
+                <div id="footer"></div>
+                </div>
+  </body>
+</html>
