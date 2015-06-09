@@ -111,17 +111,17 @@ def create_plan(spec, dep, chosen_list):
                             plan[-1].semestr = b+1
                             break
 
-    norm = []
-    za_spec = []
-    obr = []
-
-    for i in xrange(0, len(plan)):
-        if plan[i].group == 1:
-            norm.append(plan[i])
-        if plan[i].group == 2:
-            za_spec.append(plan[i])
-        if plan[i].group == 3:
-            obr.append(plan[i])
+    # norm = []
+    # za_spec = []
+    # obr = []
+    #
+    # for i in xrange(0, len(plan)):
+    #     if plan[i].group == 1:
+    #         norm.append(plan[i])
+    #     if plan[i].group == 2:
+    #         za_spec.append(plan[i])
+    #     if plan[i].group == 3:
+    #         obr.append(plan[i])
 
 
     log (spec)
