@@ -56,8 +56,11 @@ $(document).ready(function() {
     }
 );
 </script>
-<button onclick="export_table_to_excel('myTable', 'План предметів');">Export to excel</button>
+
+<button onclick="export_table_to_excel('myTable', 'Навчальний план');">Export to excel</button>
 {#<table style="margin-left:30px;" width="50%" border="2" rules="all" style="font-size: 20px;" id="myTable">#}
+
+<br/>
 <table class="tablesorter-green" id="myTable">
 {#   <caption>План</caption>#}
  <thead>
@@ -69,7 +72,58 @@ $(document).ready(function() {
    </tr>
  </thead>
  <tbody>
-     {% for subject in plan %}
+     {% for subject in norm %}
+
+   <tr>
+   <td align="center" >{{ subject.id }}</td>
+    <td align="left" >{{ subject.name }}</td>
+    <td align="center" >{{ subject.kredits }}</td>
+    <td align="center" >{{ subject.semestr }}</td>
+   </tr>
+      {% endfor %}
+ </tbody>
+
+  </table>
+
+<br/>
+<table class="tablesorter-green" id="myTable">
+{#   <caption>План</caption>#}
+ <thead>
+   <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Credits</th>
+    <th>Semester</th>
+   </tr>
+ </thead>
+ <tbody>
+     {% for subject in za_spec %}
+
+   <tr>
+   <td align="center" >{{ subject.id }}</td>
+    <td align="left" >{{ subject.name }}</td>
+    <td align="center" >{{ subject.kredits }}</td>
+    <td align="center" >{{ subject.semestr }}</td>
+   </tr>
+      {% endfor %}
+ </tbody>
+
+  </table>
+
+<br/>
+
+<table class="tablesorter-green" id="myTable">
+{#   <caption>План</caption>#}
+ <thead>
+   <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Credits</th>
+    <th>Semester</th>
+   </tr>
+ </thead>
+ <tbody>
+     {% for subject in obr %}
 
    <tr>
    <td align="center" >{{ subject.id }}</td>

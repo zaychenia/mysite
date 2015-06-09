@@ -55,10 +55,10 @@ def plan_page(request):
         if unicode(key) in request.POST:
             chosen_list.append(int(request.POST[unicode(key)]))
         else: break
-    output, plan  = graph.create_plan(request.POST['specialization'], request.POST['department'], chosen_list)
+    output, plan, norm, za_spec, obr = graph.create_plan(request.POST['specialization'], request.POST['department'], chosen_list)
+
     template = loader.get_template('myapp/plan_page.html')
-    # context = RequestContext(request, {'output': output, 'plan': plan, 'norm': norm, 'za_spec': za_spec, 'obr': obr})
-    context = RequestContext(request, {'output': output, 'plan': plan})
+    context = RequestContext(request, {'output': output, 'plan': plan, 'norm': norm, 'za_spec': za_spec, 'obr': obr})
     return HttpResponse(template.render(context))
 
 @login_required
