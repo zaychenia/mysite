@@ -7,6 +7,10 @@
     <link rel="stylesheet" type="text/css" href="/static/theme.green.css" />
     <script src="/static/jquery.min.js"></script>
     <script src="/static/jquery.tablesorter.min.js"></script>
+    <script src="/static/export2excel.js"></script>
+    <script src="/static/Blob.js"></script>
+    <script src="/static/FileSaver.min.js"></script>
+    <script src="/static/xlsx.core.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
     <style type="text/css" >
@@ -52,6 +56,7 @@ $(document).ready(function() {
     }
 );
 </script>
+<button onclick="export_table_to_excel('myTable', 'План предметів');">Export to excel</button>
 {#<table style="margin-left:30px;" width="50%" border="2" rules="all" style="font-size: 20px;" id="myTable">#}
 <table class="tablesorter-green" id="myTable">
 {#   <caption>План</caption>#}
