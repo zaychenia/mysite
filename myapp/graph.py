@@ -15,7 +15,7 @@ def create_plan(spec, dep, chosen_list):
     print len(Subject.objects.all()), len(to_remove)
     subjects = [s for s in Subject.objects.all() if s.id not in to_remove]
     print  len(subjects)
-# creation of graph
+#  graph creation
     graph = []
     for i in xrange(0, len(subjects)):
         graph.append([0] * len(subjects))
@@ -110,6 +110,20 @@ def create_plan(spec, dep, chosen_list):
                             plan.append(subjects[i])
                             plan[-1].semestr = b+1
                             break
+
+    norm = []
+    za_spec = []
+    obr = []
+
+    for i in xrange(0, len(plan)):
+        if plan[i].group == 1:
+            norm.append(plan[i])
+        if plan[i].group == 2:
+            za_spec.append(plan[i])
+        if plan[i].group == 3:
+            obr.append(plan[i])
+
+
     log (spec)
 
     log('Kilkist disciplin y plani - ')

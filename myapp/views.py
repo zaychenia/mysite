@@ -57,7 +57,7 @@ def plan_page(request):
         else: break
     output, plan = graph.create_plan(request.POST['specialization'], request.POST['department'], chosen_list)
     template = loader.get_template('myapp/plan_page.html')
-    context = RequestContext(request, {'output': output, 'plan': plan})
+    context = RequestContext(request, {'output': output, 'plan': plan, 'norm': norm, 'za_spec': za_spec, 'obr': obr})
     return HttpResponse(template.render(context))
 
 @login_required

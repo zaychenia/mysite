@@ -74,7 +74,60 @@ $(document).ready(function() {
    </tr>
       {% endfor %}
  </tbody>
+
   </table>
+
+<br/>
+
+<table class="tablesorter-green" id="myTable">
+{#   <caption>План</caption>#}
+ <thead>
+   <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Credits</th>
+    <th>Semester</th>
+   </tr>
+ </thead>
+ <tbody>
+     {% for subject in plan %}
+
+   <tr>
+   <td align="center" >{{ subject.id }}</td>
+    <td align="left" >{{ subject.name }}</td>
+    <td align="center" >{{ subject.kredits }}</td>
+    <td align="center" >{{ subject.semestr }}</td>
+   </tr>
+      {% endfor %}
+ </tbody>
+
+  </table>
+
+<br/>
+<table class="tablesorter-green" id="myTable">
+{#   <caption>План</caption>#}
+ <thead>
+   <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Credits</th>
+    <th>Semester</th>
+   </tr>
+ </thead>
+ <tbody>
+     {% for subject in plan %}
+
+   <tr>
+   <td align="center" >{{ subject.id }}</td>
+    <td align="left" >{{ subject.name }}</td>
+    <td align="center" >{{ subject.kredits }}</td>
+    <td align="center" >{{ subject.semestr }}</td>
+   </tr>
+      {% endfor %}
+ </tbody>
+
+  </table>
+
 
 {#<code>#}
 {#    <pre>#}
