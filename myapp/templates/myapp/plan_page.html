@@ -66,9 +66,9 @@ $(document).ready(function() {
  <thead>
    <tr>
     <th>ID</th>
-    <th>Name</th>
-    <th>Credits</th>
-    <th>Semester</th>
+    <th>Наза дисципліни</th>
+    <th>Кредити</th>
+    <th>Семестр</th>
    </tr>
  </thead>
  <tbody>
@@ -81,6 +81,9 @@ $(document).ready(function() {
     <td align="center" >{{ subject.semestr }}</td>
    </tr>
       {% endfor %}
+ <tr>
+     <td></td><td>Всього кредитів</td><td align="center" >{{norm_s}}</td><td></td>
+ </tr>
  </tbody>
 
   </table>
@@ -94,35 +97,9 @@ $(document).ready(function() {
  <thead>
    <tr>
     <th>ID</th>
-    <th>Name</th>
-    <th>Credits</th>
-    <th>Semester</th>
-   </tr>
- </thead>
- <tbody>
-     {% for subject in za_spec %}
-
-   <tr>
-   <td align="center" >{{ subject.id }}</td>
-    <td align="left" >{{ subject.name }}</td>
-    <td align="center" >{{ subject.kredits }}</td>
-    <td align="center" >{{ subject.semestr }}</td>
-   </tr>
-      {% endfor %}
- </tbody>
-
-  </table>
-
-<br/><br/>
-
-<table class="tablesorter-green" id="myTable">
-   <caption>БЛОК ДИСЦИПЛІН ОБРАНОЇ СПЕЦІАЛІЗАЦІЇ</caption>
- <thead>
-   <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Credits</th>
-    <th>Semester</th>
+    <th>Наза дисципліни</th>
+    <th>Кредити</th>
+    <th>Семестр</th>
    </tr>
  </thead>
  <tbody>
@@ -135,6 +112,38 @@ $(document).ready(function() {
     <td align="center" >{{ subject.semestr }}</td>
    </tr>
       {% endfor %}
+  <tr>
+     <td></td><td>Всього кредитів</td><td align="center" >{{obr_s}}</td><td></td>
+ </tr>
+ </tbody>
+
+  </table>
+
+<br/><br/>
+
+<table class="tablesorter-green" id="myTable">
+   <caption>БЛОК ДИСЦИПЛІН ОБРАНОЇ СПЕЦІАЛІЗАЦІЇ</caption>
+ <thead>
+   <tr>
+    <th>ID</th>
+    <th>Наза дисципліни</th>
+    <th>Кредити</th>
+    <th>Семестр</th>
+   </tr>
+ </thead>
+ <tbody>
+     {% for subject in za_spec %}
+
+   <tr>
+   <td align="center" >{{ subject.id }}</td>
+    <td align="left" >{{ subject.name }}</td>
+    <td align="center" >{{ subject.kredits }}</td>
+    <td align="center" >{{ subject.semestr }}</td>
+   </tr>
+      {% endfor %}
+  <tr>
+     <td></td><td>Всього кредитів</td><td align="center" >{{za_spec_s}}</td><td></td>
+ </tr>
  </tbody>
 
   </table>
@@ -153,6 +162,7 @@ $(document).ready(function() {
     <th>Семестр 6</th>
     <th>Семестр 7</th>
     <th>Семестр 8</th>
+    <th>Сума</th>
    </tr>
  </thead>
  <tbody>
@@ -166,17 +176,18 @@ $(document).ready(function() {
         <td align="center" >{{ s6 }}</td>
         <td align="center" >{{ s7 }}</td>
         <td align="center" >{{ s8 }}</td>
+       <td align="center" >{{ suma }}</td>
    </tr>
 
  </tbody>
 
   </table>
 
-<code>
-    <pre>
-        {{ output }}
-    </pre>
-</code>
+{#<code>#}
+{#    <pre>#}
+{#        {{ output }}#}
+{#    </pre>#}
+{#</code>#}
 
 <p style="margin-left: 20"><font face="Arial" size="2" color="#000000">&nbsp;</font></p>
 <p style="margin-left: 20" align="center"><font face="Arial" color="#000000" size="1">©

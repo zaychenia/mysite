@@ -114,17 +114,21 @@ def create_plan(spec, dep, chosen_list):
     norm = []
     za_spec = []
     obr = []
+    norm_s = 0
+    za_spec_s = 0
+    obr_s = 0
 
     for i in xrange(0, len(plan)):
         if plan[i].group == 1:
             norm.append(plan[i])
-        if plan[i].group == 2:
-            za_spec.append(plan[i])
+            norm_s = plan[i].kredits + norm_s
         if plan[i].group == 3:
+            za_spec.append(plan[i])
+            za_spec_s = plan[i].kredits + za_spec_s
+        if plan[i].group == 2:
             obr.append(plan[i])
+            obr_s = plan[i].kredits + obr_s
 
-    log('wwwwwwwwwwwww')
-    log(s[3])
 
     s1=s[0]
     s2=s[1]
@@ -134,6 +138,10 @@ def create_plan(spec, dep, chosen_list):
     s6=s[5]
     s7=s[6]
     s8=s[7]
+
+    suma = 0
+    for i in range(0, len(s)):
+        suma = s[i] + suma
 
 
     log (spec)
@@ -150,7 +158,7 @@ def create_plan(spec, dep, chosen_list):
     #correct the plan
 
 
-    return log_out.getvalue(),plan, norm, za_spec, obr, s1, s2, s3, s4, s5, s6, s7, s8
+    return log_out.getvalue(),plan, norm, za_spec, obr, s1, s2, s3, s4, s5, s6, s7, s8, norm_s, za_spec_s, obr_s, suma
 
 
 

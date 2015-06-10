@@ -55,10 +55,10 @@ def plan_page(request):
         if unicode(key) in request.POST:
             chosen_list.append(int(request.POST[unicode(key)]))
         else: break
-    output, plan, norm, za_spec, obr, s1, s2, s3, s4, s5, s6, s7, s8 = graph.create_plan(request.POST['specialization'], request.POST['department'], chosen_list)
+    output, plan, norm, za_spec, obr, s1, s2, s3, s4, s5, s6, s7, s8, norm_s, za_spec_s, obr_s, suma = graph.create_plan(request.POST['specialization'], request.POST['department'], chosen_list)
 
     template = loader.get_template('myapp/plan_page.html')
-    context = RequestContext(request, {'output': output, 'plan': plan, 'norm': norm, 'za_spec': za_spec, 'obr': obr, 's1':s1, 's2':s2, 's3':s3, 's4':s4, 's5':s5, 's6':s6, 's7':s7, 's8':s8})
+    context = RequestContext(request, {'output': output, 'plan': plan, 'norm': norm, 'za_spec': za_spec, 'obr': obr, 's1':s1, 's2':s2, 's3':s3, 's4':s4, 's5':s5, 's6':s6, 's7':s7, 's8':s8, 'norm_s':norm_s, 'za_spec_s':za_spec_s, 'obr_s':obr_s, 'suma':suma})
     return HttpResponse(template.render(context))
 
 @login_required
