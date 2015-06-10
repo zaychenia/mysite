@@ -150,7 +150,7 @@ def create_plan(spec, dep, chosen_list):
     #correct the plan
 
 
-    return log_out.getvalue(),plan, norm, za_spec, obr, s1,s2,s3,s4,s5,s6,s7,s8
+    return log_out.getvalue(),plan, norm, za_spec, obr, s1, s2, s3, s4, s5, s6, s7, s8
 
 
 
