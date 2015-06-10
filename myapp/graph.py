@@ -40,8 +40,14 @@ def create_plan(spec, dep, chosen_list):
                 if subjects[d].department.name == dep:
                     if (subjects[d].specialization is None) or (subjects[d].specialization is int(spec)):
                         if (subjects[d].kredits + s[y-1]) <= (31):
-                            s[y-1] = subjects[d].kredits + s[y-1]
-                            plan.append(subjects[d])
+                            if y%2 == 0:
+                                if s[y-2] + s[y-1] <= 60:
+                                    s[y-1] = subjects[d].kredits + s[y-1]
+                                    plan.append(subjects[d])
+                            elif y%2 != 0:
+                                if s[y] + s[y-1] <= 60:
+                                    s[y-1] = subjects[d].kredits + s[y-1]
+                                    plan.append(subjects[d])
                         else: log('Invalid data. Subjects linked to ' + str(y) + ' semester have exceeded maximum sum of credits')
     # add  opportunity to divide credits on both semesters if there are two of them
 
@@ -57,12 +63,19 @@ def create_plan(spec, dep, chosen_list):
             if subjects[node].department.name == dep:
                 if (subjects[node].specialization is None) or (subjects[node].specialization is int(spec)):
                     y = 1
-                    while (subjects[node].kredits + s[y-1]) > (30):
+                    while (subjects[node].kredits + s[y-1]) > (31):
                         y = y+1
                     else:
-                        s[y-1] = subjects[node].kredits + s[y-1]
-                        plan.append(subjects[node])
-                        plan[-1].semestr = y
+                        if y%2 == 0:
+                            if s[y-2] + s[y-1] <= 60:
+                                s[y-1] = subjects[node].kredits + s[y-1]
+                                plan.append(subjects[node])
+                                plan[-1].semestr = y
+                        elif y%2 != 0:
+                            if s[y] + s[y-1] <= 60:
+                                s[y-1] = subjects[node].kredits + s[y-1]
+                                plan.append(subjects[node])
+                                plan[-1].semestr = y
 
         if (subjects[node] not in plan) and str(subjects[node].depends_on) != '':
             if subjects[node].department.name == dep:
@@ -74,12 +87,19 @@ def create_plan(spec, dep, chosen_list):
                         if v>max:
                             max=v
                     y = int(max)
-                    while (subjects[node].kredits + s[y-1]) > (30):
+                    while (subjects[node].kredits + s[y-1]) > (31):
                         y = y + 1
                     else:
-                        s[y-1] = subjects[node].kredits + s[y-1]
-                        plan.append(subjects[node])
-                        plan[-1].semestr = y
+                        if y%2 == 0:
+                            if s[y-2] + s[y-1] <= 60:
+                                s[y-1] = subjects[node].kredits + s[y-1]
+                                plan.append(subjects[node])
+                                plan[-1].semestr = y
+                        elif y%2 != 0:
+                            if s[y] + s[y-1] <= 60:
+                                s[y-1] = subjects[node].kredits + s[y-1]
+                                plan.append(subjects[node])
+                                plan[-1].semestr = y
 
     #choose nodes on which run fun(node) function
     for m in range(0,len(graph)):
@@ -105,11 +125,20 @@ def create_plan(spec, dep, chosen_list):
             if subjects[i].department.name == dep:
                 if (subjects[i].specialization is None) or (subjects[i].specialization is int(spec)):
                     for b in range(0,8):
-                        if (subjects[i].kredits + s[b]) <= (30):
-                            s[b] = subjects[i].kredits + s[b]
-                            plan.append(subjects[i])
-                            plan[-1].semestr = b+1
-                            break
+                        if (subjects[i].kredits + s[b]) <= (31):
+                            if (b+1)%2 == 0:
+                                if s[b-1] + s[b] <= 60:
+                                    s[b] = subjects[i].kredits + s[b]
+                                    plan.append(subjects[i])
+                                    plan[-1].semestr = b+1
+                                    break
+                            elif (b+1)%2 != 0:
+                                if s[b+1] + s[b] <= 60:
+                                    s[b] = subjects[i].kredits + s[b]
+                                    plan.append(subjects[i])
+                                    plan[-1].semestr = b+1
+                                    break
+
 
     norm = []
     za_spec = []
