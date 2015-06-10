@@ -55,9 +55,15 @@ $(document).ready(function() {
         $("#myTable").tablesorter();
     }
 );
+tables_to_export = [
+  {tid:'myTable', tab_name:'НОРМАТИВНА ЧАСТИНА'}, 
+  {tid:'studChosenTable', tab_name:'ДИСЦИПЛІНИ ЗА ВИБОРОМ СТУДЕНТА'}, 
+  {tid:'specializationtable', tab_name:'БЛОК ДИСЦИПЛІН ОБРАНОЇ СПЕЦІАЛІЗАЦІЇ'}, 
+  {tid:'totalTable', tab_name:'Всього за навчальним планом підготовки бакалавра'} 
+];
 </script>
 
-<button onclick="export_table_to_excel('myTable', 'Навчальний план');">Export to excel</button>
+<button onclick="export_tables_to_excel(tables_to_export, 'Навчальний план');">Export to excel</button>
 {#<table style="margin-left:30px;" width="50%" border="2" rules="all" style="font-size: 20px;" id="myTable">#}
 
 <br/>
@@ -90,7 +96,7 @@ $(document).ready(function() {
 
 <br/><br/>
 
-<table class="tablesorter-green" id="myTable">
+<table class="tablesorter-green" id="studChosenTable">
   <strong><p style align="center">ДИСЦИПЛІНИ ЗА ВИБОРОМ СТУДЕНТА</p></strong>
 <br/>
   <caption>ДИСЦИПЛІНИ ОБРАНІ СТУДЕНТОМ</caption>
@@ -121,7 +127,7 @@ $(document).ready(function() {
 
 <br/><br/>
 
-<table class="tablesorter-green" id="myTable">
+<table class="tablesorter-green" id="specializationtable">
    <caption>БЛОК ДИСЦИПЛІН ОБРАНОЇ СПЕЦІАЛІЗАЦІЇ</caption>
  <thead>
    <tr>
@@ -150,7 +156,7 @@ $(document).ready(function() {
 
 <br/><br/>
 
-<table class="tablesorter-green" id="myTable">
+<table class="tablesorter-green" id="totalTable">
 <p align="center">Всього за навчальним планом підготовки бакалавра:</p>
  <thead>
    <tr>

@@ -87,25 +87,29 @@ function s2ab(s) {
 	return buf;
 }
 
-function export_table_to_excel(id, resulting_file_name) {
-var theTable = document.getElementById(id);
-var oo = generateArray(theTable);
-var ranges = oo[1];
+function export_tables_to_excel(ids, resulting_file_name) {
+var wb = new Workbook();
+console.log(ids.length);
+for (var i = 0; i < ids.length; i++) {
+  var theTable = document.getElementById(ids[i].tid);
+  var oo = generateArray(theTable);
+  var ranges = oo[1];
 
-/* original data */
-var data = oo[0]; 
-var ws_name = "SheetJS";
-//console.log(data); 
+  /* original data */
+  var data = oo[0]; 
+  var ws_name = ids[i].tab_name;
+  console.log(ws_name);
+  //console.log(data); 
 
-var wb = new Workbook(), ws = sheet_from_array_of_arrays(data);
- 
-/* add ranges to worksheet */
-ws['!merges'] = ranges;
+  var ws = sheet_from_array_of_arrays(data);
+   
+  /* add ranges to worksheet */
+  ws['!merges'] = ranges;
 
-/* add worksheet to workbook */
-wb.SheetNames.push(ws_name);
-wb.Sheets[ws_name] = ws;
-
+  /* add worksheet to workbook */
+  wb.SheetNames.push(ws_name);
+  wb.Sheets[ws_name] = ws;
+}
 var wbout = XLSX.write(wb, {bookType:'xlsx', bookSST:false, type: 'binary'});
 
 saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), resulting_file_name + ".xlsx")
